@@ -1,5 +1,8 @@
 package com.alianga.valid.annotation;
 
+import com.alianga.valid.validation.ValidJsonValidator;
+
+import javax.validation.Constraint;
 import javax.validation.Payload;
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
@@ -14,6 +17,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
 @Retention(RUNTIME)
 @Documented
+@Constraint(validatedBy = ValidJsonValidator.class)
 public @interface ValidJson {
     /**
      * 错误提示信息
